@@ -19,7 +19,7 @@ public class App extends Application
     @Override
     public void start(Stage primaryStage) throws Exception {
      Parent root = FXMLLoader.load(getClass().getResource("/resource/LogInStage.fxml"));
-     Scene scene = new Scene(root,600,400);
+     Scene scene = new Scene(root,500,400);
      primaryStage.setScene(scene);
      primaryStage.setTitle("Finance App Demo");
      primaryStage.show();
