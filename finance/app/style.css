@@ -1,0 +1,29 @@
+
+/* =============== TAB PANE STYLING =============== */
+.tab-pane {
+    -fx-alignment: CENTER;
+    -fx-background-color: transparent;
+    -fx-tab-min-width: 120px;
+    -fx-tab-min-height: 40px;
+    
+}
+/* Transparent tab background */
+.tab-pane .tab {
+    -fx-background-color: transparent;
+    -fx-alignment: CENTER;
+}
+/* Selected tab styling */
+.tab-pane .tab:selected {
+    -fx-background-color: rgb(255, 255, 255); /* Light blue selection */
+    -fx-background-radius: 5 5 0 0;
+}
+.tab-label {
+    -fx-aligment : CENTER;
+}
+/* Tab content area */
+.tab-pane .tab-content-area {
+    -fx-background-color: rgb(255, 255, 255);
+}
+.tab-header-area {
+    -fx-aligment : CENTER;
+}
