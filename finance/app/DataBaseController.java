@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 public class DataBaseController {
             String name = "root";
             String password = "1234567";
-            //Name pf your database or host where you runing this project
+            //Name of your database or host where you runing this project
             String url = "jdbc:mysql://localhost:3306/name_OF_DataBase";
             
     public void Add(String USERNAME,String PASSWORD){
@@ -35,7 +35,6 @@ public class DataBaseController {
         try{
           testMainConnection = DriverManager.getConnection(url,name,password);
           System.out.println("connection established sucesfully");
-        //   return Connection;
         }catch(Exception e){
             e.printStackTrace();
         }
