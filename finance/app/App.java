@@ -22,6 +22,7 @@ public class App extends Application
      Scene scene = new Scene(root,500,400);
      scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
      primaryStage.setScene(scene);
+     primaryStage.setResizable(false);
      primaryStage.setTitle("Finance App Demo");
      primaryStage.show();
     }

@@ -1,29 +1,22 @@
 
-/* =============== TAB PANE STYLING =============== */
 .tab-pane {
-    -fx-alignment: CENTER;
-    -fx-background-color: transparent;
-    -fx-tab-min-width: 120px;
-    -fx-tab-min-height: 40px;
     
-}
-/* Transparent tab background */
-.tab-pane .tab {
     -fx-background-color: transparent;
     -fx-alignment: CENTER;
 }
-/* Selected tab styling */
-.tab-pane .tab:selected {
-    -fx-background-color: rgb(255, 255, 255); /* Light blue selection */
-    -fx-background-radius: 5 5 0 0;
+.tab {
+    
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 10px 20px;
 }
-.tab-label {
-    -fx-aligment : CENTER;
+/* Selected Tab Styling */
+.tab:selected {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-border-color: transparent transparent #3498db transparent;
+    -fx-border-width: 0 0 2px 0;
 }
-/* Tab content area */
 .tab-pane .tab-content-area {
-    -fx-background-color: rgb(255, 255, 255);
-}
-.tab-header-area {
-    -fx-aligment : CENTER;
+    -fx-background-color: transparent;
+    -fx-alignment: center ;
 }

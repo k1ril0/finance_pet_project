@@ -85,7 +85,7 @@
                                     <Font name="Arial Black" size="15.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="SIGH_IN_BUTTON" layoutX="361.0" layoutY="191.0" mnemonicParsing="false" onAction="#LogInButton" prefHeight="48.0" prefWidth="106.0" style="-fx-background-radius: 25;" text="SIGH IN">
+                              <Button fx:id="SIGH_IN_BUTTON" layoutX="361.0" layoutY="191.0" mnemonicParsing="false" onAction="#SighInButton" prefHeight="48.0" prefWidth="106.0" style="-fx-background-radius: 25;" text="SIGH IN">
                                  <font>
                                     <Font name="Arial Black" size="16.0" />
                                  </font>

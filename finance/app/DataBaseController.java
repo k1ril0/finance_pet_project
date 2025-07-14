@@ -8,19 +8,20 @@ public class DataBaseController {
             String name = "root";
             String password = "1234567";
             //Name of your database or host where you runing this project
-            String url = "jdbc:mysql://localhost:3306/name_OF_DataBase";
+            String url = "jdbc:mysql://localhost:3306/finance_log_in_storeg";
             
     public void Add(String USERNAME,String PASSWORD){
        try{
-        Connection AddConnection = getTestConnection(name,password,url);
+        Connection AddConnection = getTestConnection();
            if(AddConnection != null){
-             String SQL_ADD_COMMAND = "inser into 'table_name' (name,password) values (?,?)";
+             String SQL_ADD_COMMAND = "insert into users (Username,password) values (?,?)";
              PreparedStatement ADD_STATMENT = AddConnection.prepareStatement(SQL_ADD_COMMAND);
              ADD_STATMENT.setString(1, USERNAME);
              ADD_STATMENT.setString(2, PASSWORD);
              int rowsAffected = ADD_STATMENT.executeUpdate();
              if(rowsAffected > 0){
                System.out.println("Rowws affected : " + rowsAffected);
+               AddConnection.close();
              }
            }else{
             System.out.println("Something went wrong in add method");
@@ -30,9 +31,10 @@ public class DataBaseController {
         e.printStackTrace();
        }
     }
-    private Connection getTestConnection(String password,String url,String name){
+    private Connection getTestConnection(){
         Connection testMainConnection = null;
         try{
+        Class.forName("com.mysql.cj.jdbc.Driver");
           testMainConnection = DriverManager.getConnection(url,name,password);
           System.out.println("connection established sucesfully");
         }catch(Exception e){
@@ -41,5 +43,17 @@ public class DataBaseController {
        
        return testMainConnection;
     }
+    private void SearchUserInDataBase(String name,String password){
+      try{
+      Connection searchTestConnection = (getTestConnection());
+      String SQL_COMMAND_SEARCH = "select * from users where username = ? and password = ?" ;
+      PreparedStatement serachStatement = searchTestConnection.prepareStatement(SQL_COMMAND_SEARCH);
+      serachStatement.setString(1,name);
+      serachStatement.setString(2, password);
+      }catch(Exception e){
+        e.printStackTrace();
+      }
+    }
+
     
 }

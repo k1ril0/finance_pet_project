@@ -1,5 +1,6 @@
 package resource;
 
+import finance.app.DataBaseController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -96,6 +97,8 @@ public class ControllerLogInPage {
             break;
             case "ALL_GOOD":
             System.out.println("ALL GOOD");
+            DataBaseController controller = new DataBaseController();
+            controller.Add(LOGIN_FILED_SIGH_IN.getText(), PASSWORD_FIELD_SIGH_IN.getText());
             break;
         }
     }
