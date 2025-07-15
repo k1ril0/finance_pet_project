@@ -3,6 +3,7 @@ package finance.app;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class DataBaseController {
             String name = "root";
@@ -43,13 +44,19 @@ public class DataBaseController {
        
        return testMainConnection;
     }
-    private void SearchUserInDataBase(String name,String password){
+    public void SearchUserInDataBase(String name,String password){
       try{
       Connection searchTestConnection = (getTestConnection());
       String SQL_COMMAND_SEARCH = "select * from users where username = ? and password = ?" ;
       PreparedStatement serachStatement = searchTestConnection.prepareStatement(SQL_COMMAND_SEARCH);
       serachStatement.setString(1,name);
       serachStatement.setString(2, password);
+      ResultSet result = serachStatement.executeQuery();
+      if(result.next()){
+        System.out.println("user with this name and password  was found in our database");
+      }else{
+        System.out.println("couldnt found user like this");
+      }
       }catch(Exception e){
         e.printStackTrace();
       }

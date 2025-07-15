@@ -4,8 +4,12 @@ import finance.app.DataBaseController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class ControllerLogInPage {
 
@@ -30,6 +34,8 @@ public class ControllerLogInPage {
 
     @FXML
     private TextField LOGIN_FILED_SIGH_IN;
+    // @FXML
+    // private Stage primaryStage2;
 
 
 
@@ -50,6 +56,9 @@ public class ControllerLogInPage {
             break;
             case "ALL_GOOD":
             System.out.println("ALL GOOD");
+            DataBaseController controllerSearch = new DataBaseController();
+            controllerSearch.SearchUserInDataBase(LOGIN_FILED.getText(),PASSWORD_FIELD.getText());
+            ToNextPage();
             break;
           }
         });
@@ -100,6 +109,19 @@ public class ControllerLogInPage {
             DataBaseController controller = new DataBaseController();
             controller.Add(LOGIN_FILED_SIGH_IN.getText(), PASSWORD_FIELD_SIGH_IN.getText());
             break;
+        }
+    }
+    public void ToNextPage() {
+        try{   
+     Parent root = FXMLLoader.load(getClass().getResource("/resource/MainStage.fxml"));
+     Scene scene = new Scene(root,702,91);
+     Stage primaryStage2 = (Stage) LOG_IN_BUTTON.getScene().getWindow();
+     primaryStage2.setScene(scene);
+    //  primaryStage2.setResizable(false);
+     primaryStage2.setTitle("Finance App Demo");
+     primaryStage2.show();
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }
     
