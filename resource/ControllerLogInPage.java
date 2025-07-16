@@ -114,10 +114,9 @@ public class ControllerLogInPage {
     public void ToNextPage() {
         try{   
      Parent root = FXMLLoader.load(getClass().getResource("/resource/MainStage.fxml"));
-     Scene scene = new Scene(root,702,91);
+     Scene scene = new Scene(root,701,377);
      Stage primaryStage2 = (Stage) LOG_IN_BUTTON.getScene().getWindow();
      primaryStage2.setScene(scene);
-    //  primaryStage2.setResizable(false);
      primaryStage2.setTitle("Finance App Demo");
      primaryStage2.show();
         }catch(Exception e){
