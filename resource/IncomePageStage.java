@@ -1,5 +1,7 @@
 package resource;
 
+import javax.print.DocFlavor.INPUT_STREAM;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
@@ -9,16 +11,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class IncomePageStage {
     
     @FXML
     private Button BackToMainStage;
+    // @FXML
+    // private PieChart SpendingsPieChart;
+
     @FXML
-    public PieChart pie_chart_of_spendings;
-    @FXML
-    private Button ThisMoth;
+    private Button exit_buttton = new Button("EXIT");
 
 
 
@@ -40,17 +44,40 @@ public class IncomePageStage {
     }
     @FXML
     private void SpendingsOfThisMonth(){
-      Parent root;
-      PieChart thisMothChart =  IncomeChart();
+      PieChart nowDaysSpendings = IncomeChart();
       try{
-         Stage stage = (Stage) ThisMoth.getScene().getWindow();
-         Scene scene = new Scene(thisMothChart,600,400);
-         stage.setScene(scene);
-         stage.setTitle("This month Chart");
-         stage.show();
+        // Parent root = FXMLLoader.load(getClass().getResource("PieChart.fxml"));
+        Stage PieChartStage = (Stage) BackToMainStage.getScene().getWindow();
+        Scene scene = new Scene(nowDaysSpendings);
+        PieChartStage.setScene(scene);
+        PieChartStage.setTitle("PIeChart");
+        exit_buttton.setOnAction(e ->{
+          GoBackToIcomePage();
+        });
+        VBox window = new VBox(nowDaysSpendings,exit_buttton);
+        Scene chartScene = new Scene(window,600,400);
+        PieChartStage.setScene(chartScene);
+        PieChartStage.show();
       }catch(Exception e){
         e.printStackTrace();
       }
+    }
+
+
+    @FXML
+    private void GoBackToIcomePage(){
+      try{
+        Parent root = FXMLLoader.load(getClass().getResource("IncomePageStage.fxml"));
+        Stage BacckStage = (Stage) exit_buttton.getScene().getWindow();
+        Scene scene = new Scene(root);
+        BacckStage.setScene(scene);
+        BacckStage.show();
+      }catch(Exception e){
+         e.printStackTrace();
+      }
+
+
+
     }
     private PieChart IncomeChart(){
       ObservableList<PieChart.Data> listOfDataMoney = 
