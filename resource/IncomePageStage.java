@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -18,11 +19,8 @@ public class IncomePageStage {
     
     @FXML
     private Button BackToMainStage;
-    // @FXML
-    // private PieChart SpendingsPieChart;
-
     @FXML
-    private Button exit_buttton = new Button("EXIT");
+    private Button AddIncomesButton = new Button();
 
 
 
@@ -46,13 +44,13 @@ public class IncomePageStage {
     private void SpendingsOfThisMonth(){
       PieChart nowDaysSpendings = IncomeChart();
       try{
-        // Parent root = FXMLLoader.load(getClass().getResource("PieChart.fxml"));
+        Button exit_buttton = new Button("EXIT");
         Stage PieChartStage = (Stage) BackToMainStage.getScene().getWindow();
         Scene scene = new Scene(nowDaysSpendings);
         PieChartStage.setScene(scene);
         PieChartStage.setTitle("PIeChart");
         exit_buttton.setOnAction(e ->{
-          GoBackToIcomePage();
+          GoBackToIcomePage(exit_buttton);
         });
         VBox window = new VBox(nowDaysSpendings,exit_buttton);
         Scene chartScene = new Scene(window,600,400);
@@ -65,10 +63,10 @@ public class IncomePageStage {
 
 
     @FXML
-    private void GoBackToIcomePage(){
+    private void GoBackToIcomePage(Button ExpectedButton){
       try{
         Parent root = FXMLLoader.load(getClass().getResource("IncomePageStage.fxml"));
-        Stage BacckStage = (Stage) exit_buttton.getScene().getWindow();
+        Stage BacckStage = (Stage) ExpectedButton.getScene().getWindow();
         Scene scene = new Scene(root);
         BacckStage.setScene(scene);
         BacckStage.show();
@@ -92,4 +90,24 @@ public class IncomePageStage {
 
       return chart; 
     }
+    @FXML
+    private void AddIncomes(){
+      try{
+      TextField textFieldForLabelOfIncomes = new TextField();
+      TextField textFieldForIncomes = new TextField();
+      Button SubmitButton = new Button("SUBMIT");
+      Button ExitButton = new Button("EXIT");
+      VBox addIncomesWindow = new VBox(textFieldForLabelOfIncomes,textFieldForIncomes,SubmitButton,ExitButton);
+      Stage IncomesStage = (Stage) AddIncomesButton.getScene().getWindow();
+      Scene IncomesScene = new Scene(addIncomesWindow,250,100);
+      IncomesStage.setScene(IncomesScene); 
+      ExitButton.setOnAction(e ->{
+        GoBackToIcomePage(ExitButton);
+      });
+      IncomesStage.setTitle("Add Incomes Page");
+      IncomesStage.show();
+    }catch(Exception e){
+      e.printStackTrace();
+    }
+  }
 }
