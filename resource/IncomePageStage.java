@@ -24,6 +24,7 @@ public class IncomePageStage {
 
 
 
+
     @FXML
     private void GoBackToMainStage(){
       // PieChart chart = IncomeChart();
@@ -93,8 +94,8 @@ public class IncomePageStage {
     @FXML
     private void AddIncomes(){
       try{
-      TextField textFieldForLabelOfIncomes = new TextField();
-      TextField textFieldForIncomes = new TextField();
+       TextField textFieldForLabelOfIncomes = new TextField();
+       TextField textFieldForIncomes = new TextField();
       Button SubmitButton = new Button("SUBMIT");
       Button ExitButton = new Button("EXIT");
       VBox addIncomesWindow = new VBox(textFieldForLabelOfIncomes,textFieldForIncomes,SubmitButton,ExitButton);
@@ -104,10 +105,21 @@ public class IncomePageStage {
       ExitButton.setOnAction(e ->{
         GoBackToIcomePage(ExitButton);
       });
+      SubmitButton.setOnAction(e ->{
+         if(CheckFieldsForAdd(textFieldForIncomes,textFieldForLabelOfIncomes)){
+          GoBackToIcomePage(SubmitButton);
+          System.out.println("all good");
+      }else{
+        System.out.println("Please fil all the fields ");
+    }
+      });
       IncomesStage.setTitle("Add Incomes Page");
       IncomesStage.show();
     }catch(Exception e){
       e.printStackTrace();
     }
+  }
+  private Boolean CheckFieldsForAdd(TextField textFieldForIncomes,TextField textFieldForLabelOfIncomes){
+   return !textFieldForLabelOfIncomes.getText().isEmpty()&&!textFieldForIncomes.getText().isEmpty();
   }
 }
