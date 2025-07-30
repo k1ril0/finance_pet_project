@@ -22,7 +22,7 @@ public class MainStageController {
             try{
                 Parent root = FXMLLoader.load(getClass().getResource("/resource/IncomePageStage.fxml"));
                 Stage incomeStage = (Stage) incomes_other_button.getScene().getWindow();
-                Scene incomeScene = new Scene(root,600,400);
+                Scene incomeScene = new Scene(root,600,400); 
                 incomeStage.setScene(incomeScene);
                 incomeStage.setTitle("Income Edit Page");
                 incomeStage.setResizable(false);
