@@ -4,7 +4,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resource.IncomePageStage">
    <children>
       <Button layoutX="48.0" layoutY="39.0" mnemonicParsing="false" onAction="#AddInfoCategory" prefHeight="40.0" prefWidth="152.0" text="ADD INCOME">
@@ -15,6 +14,11 @@
       <Button fx:id="BackToMainStage" layoutX="36.0" layoutY="338.0" mnemonicParsing="false" onAction="#GoBackToMainStage" text="BACK">
          <font>
             <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="SpendingsTrackerButton" layoutX="263.0" layoutY="39.0" mnemonicParsing="false" onAction="#SpendingsTrackerActionButton" prefHeight="40.0" prefWidth="176.0" text="Spendings Tracker">
+         <font>
+            <Font size="18.0" />
          </font>
       </Button>
    </children>

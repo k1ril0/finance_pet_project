@@ -20,6 +20,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class IncomePageStage {
+     @FXML
+    private Button SpendingsTrackerButton;
     
     @FXML
     private Button BackToMainStage;
@@ -86,7 +88,7 @@ public class IncomePageStage {
           }else{
             AddNewCatg(parsedLabel, parsedAmount);
             AddInfoCategoryStage.close();
-            PieChartInitialize();
+            // PieChartInitialize();
             // GoBackToIcomePage(EnterButton);
           } 
           }catch(NumberFormatException ex){
@@ -133,6 +135,16 @@ public class IncomePageStage {
 
               }
         });
+    }
+    @FXML
+    private void SpendingsTrackerActionButton(){
+      if(listForPieChart.isEmpty()){
+        System.out.println("PLease add something and then came back here");
+        return;
+      }else{
+        PieChartInitialize();
+      }
+     
     }
 
 
